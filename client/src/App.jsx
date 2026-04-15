@@ -1,16 +1,17 @@
 import { Routes, Route } from "react-router";
-import { useAuth } from "./hooks/useAuth";
+
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
-  const { loading } = useAuth();
+  // const { loading } = useAuth();
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <>
@@ -18,8 +19,10 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }

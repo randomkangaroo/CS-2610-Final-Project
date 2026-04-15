@@ -1,17 +1,38 @@
-import { useRequireUser } from "../hooks/useRequireUser";
+import { useEffect, useState } from "react";
+import DeckCard from "../components/DeckCard";
 import logo from "../assets/logo.png";
 
 function Home() {
-  const user = useRequireUser();
+  const [decks, setDecks] = useState([]);
 
-  if (!user) {
-    return null;
-  }
+  useEffect(() => {
+    // TODO: put deck fetching from the server here
+  }, []);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Welcome, {user.username}!</h2>
-      <img src={logo} alt="My App" className="home-logo" />
+    <div>
+      <div>TODO: put a big banner image here</div>
+      <div className="container">
+        <span>Decks:</span>
+        <div className="deck-card-container">
+          {
+          /*
+          decks.map((deck) => {
+            <div key={deck.id}>
+              <DeckCard
+                deckId={deck.id}
+                imgSrc=
+                imgAlt=
+                name={deck.name}
+                price={deck.price}
+                desc={deck.desc}
+              />
+            </div>
+            })
+          */
+          }
+        </div>
+      </div>
     </div>
   );
 }
