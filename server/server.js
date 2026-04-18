@@ -21,6 +21,7 @@ app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
 // Middleware
+app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 
