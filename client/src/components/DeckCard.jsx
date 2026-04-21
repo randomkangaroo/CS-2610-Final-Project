@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-function DeckCard({ deckId, imgSrc, imgAlt, name, price, desc }) {
+function DeckCard({ deckId, imgSrc, imgAlt, name, price }) {
   return (
     <article className="deck-card">
       <Link to="/api/decks/{deckId}">
@@ -10,7 +10,6 @@ function DeckCard({ deckId, imgSrc, imgAlt, name, price, desc }) {
         />
         <p>{name}</p>
         <p>${price}</p>
-        <p>{desc}</p>
       </Link>
     </article>
   );

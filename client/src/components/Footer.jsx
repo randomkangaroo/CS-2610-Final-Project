@@ -51,7 +51,7 @@ function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 required/>
             </div>
-            <button type="submit" className="btn">Add Me</button>
+            <button type="submit" className="btn">Subscribe</button>
           </form>
         </div>
         <div className="row">
@@ -64,7 +64,7 @@ function Footer() {
         </div>
 
         <div className="row">
-          Company Name Copyright © 2026 Company - All rights reserved
+          Copyright © 2026 First Striker Decks - All rights reserved
         </div>
       </div>
     </footer>

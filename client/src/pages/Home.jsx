@@ -10,25 +10,23 @@ function Home() {
       const result = await fetch("/api/decks", { method: "GET" });
       const deckArray = await result.json();
       setDecks(JSON.parse(deckArray).result);
-      console.log(decks);
+      console.log(JSON.parse(deckArray));
     }
 
     getDecks();
   }, []);
 
   return (
-    <div>
+    <>
       <div>TODO: put a big banner image here</div>
-      <div className="container">
-        <span>Decks:</span>
+      <div>Decks:</div>
         <div className="deck-card-container">
           { decks &&
           decks.map((deck) => {
             <div key={deck.id}>
-              <p>Hello</p>
               <DeckCard
                 deckId={deck.id}
-                imgSrc="/public/img/decks/{deck.id}/0.png"
+                imgSrc="/img/decks/{deck.id}/0.png"
                 imgAlt="{deck.name} Cover Image"
                 name={deck.name}
                 price={deck.price}
@@ -37,9 +35,8 @@ function Home() {
             </div>
             })
           }
-        </div>
       </div>
-    </div>
+    </>
   );
 }
 

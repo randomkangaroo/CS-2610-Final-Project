@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/"><img src={logo} alt="My App" className="navbar-logo" /></Link>
+        <Link to="/"><img src={logo} alt="Company logo" className="navbar-logo" /></Link>
       </div>
         <div className="navbar-links">
           <Link to="/">Home</Link>
