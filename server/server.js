@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { create } from "express-handlebars";
 
 import decksController from "./controllers/decks.js";
+import usersController from "./controllers/users.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // API Routes
+app.use("/api/newsletter", usersController);
 app.use("/api", decksController);
 
 // Serve the React app

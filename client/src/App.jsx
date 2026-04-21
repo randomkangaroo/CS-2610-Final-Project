@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
+import Deck from "./pages/Deck";
 import AboutUs from "./pages/AboutUs";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/deck/:id" element={<Deck />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>
       </main>

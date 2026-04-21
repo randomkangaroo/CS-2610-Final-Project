@@ -2,26 +2,28 @@ import pool from "../db/connection.js";
 
 export async function getUserByName(name) {
   const res = await pool.query(
-    "SELECT id, name, email FROM users WHERE name = $1",
+    "SELECT id FROM users WHERE name = $1",
     [name]
   );
-  return res.rows || null;
+  return res.rows[0] || null;
 }
 
 export async function getUserByEmail(email) {
   const res = await pool.query(
-    "SELECT id, name, email FROM users WHERE email = $1",
+    "SELECT id FROM users WHERE email = $1",
     [email]
   );
-  return res.rows || null;
+  return res.rows[0] || null;
 }
 
 export async function addUser(name, email) {
-  // TODO: Name and email validation
+  // Name and email validation
+  if (name.length > 256 || email.length > 256) { return null; }
 
   // Add it to the table
-  await pool.query(
-    "INSERT INTO users (name, email) VALUES ($1, $2)",
+  const result = await pool.query(
+    "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *",
     [name, email]
   );
+  return result.rows;
 }

@@ -6,7 +6,14 @@ function Home() {
   const [decks, setDecks] = useState([]);
 
   useEffect(() => {
-    // TODO: put deck fetching from the server here
+    async function getDecks() {
+      const result = await fetch("/api/decks", { method: "GET" });
+      const deckArray = await result.json();
+      setDecks(JSON.parse(deckArray).result);
+      console.log(decks);
+    }
+
+    getDecks();
   }, []);
 
   return (
@@ -15,21 +22,20 @@ function Home() {
       <div className="container">
         <span>Decks:</span>
         <div className="deck-card-container">
-          {
-          /*
+          { decks &&
           decks.map((deck) => {
             <div key={deck.id}>
+              <p>Hello</p>
               <DeckCard
                 deckId={deck.id}
-                imgSrc=
-                imgAlt=
+                imgSrc="/public/img/decks/{deck.id}/0.png"
+                imgAlt="{deck.name} Cover Image"
                 name={deck.name}
                 price={deck.price}
                 desc={deck.desc}
               />
             </div>
             })
-          */
           }
         </div>
       </div>
