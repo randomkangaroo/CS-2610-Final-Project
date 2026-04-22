@@ -10,7 +10,6 @@ function Home() {
       const result = await fetch("/api/decks", { method: "GET" });
       const deckArray = await result.json();
       setDecks(JSON.parse(deckArray).result);
-      console.log(JSON.parse(deckArray));
     }
 
     getDecks();

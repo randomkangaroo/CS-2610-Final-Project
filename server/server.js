@@ -1,6 +1,6 @@
 import "dotenv/config";
 import express from "express";
-import "fs" from fs;
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { create } from "express-handlebars";
@@ -23,7 +23,6 @@ app.set("views", path.join(__dirname, "views"));
 
 // Middleware
 app.use(express.json());
-app.use(cookieParser());
 
 // API Routes
 app.use("/api/newsletter", usersController);

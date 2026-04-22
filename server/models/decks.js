@@ -2,7 +2,7 @@ import pool from "../db/connection.js";
 
 export async function getAllDecks() {
   const res = await pool.query(
-    "SELECT * FROM decks"
+    "SELECT id, name, price FROM decks"
   );
 
   return res.rows || null;
