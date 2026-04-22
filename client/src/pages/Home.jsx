@@ -18,8 +18,12 @@ function Home() {
 
   return (
     <>
-      <div>TODO: put a big banner image here</div>
-      <div>Decks:</div>
+      {
+      // <div className="container">
+      //   <img src="/img/dice.jpg" />
+      // </div>
+      }
+      <h2>Decks:</h2>
         <div className="deck-card-container">
           { decks &&
           decks.map((deck) => {
@@ -27,10 +31,9 @@ function Home() {
               <DeckCard
                 deckId={deck.id}
                 imgSrc="/img/decks/{deck.id}/0.png"
-                imgAlt="{deck.name} Cover Image"
+                imgAlt={`${deck.name} Cover Image`}
                 name={deck.name}
                 price={deck.price}
-                desc={deck.desc}
               />
             </div>
             })
