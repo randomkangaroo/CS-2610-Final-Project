@@ -1,10 +1,14 @@
 function CartItem({ deckId, deckName, deckPrice , removeFunction }) {
   return (
     <article className="cart-item">
-      <h3>{deckName}</h3>
-      <h4>{deckPrice}</h4>
-      <p>TODO: add image somewhere</p>
-      <button onClick={removeFunction} className="btn btn-danger">Remove from Cart</button>
+      <img src={`/img/decks/${deckId}/0.jpg`} alt="Deck icon" height={200} />
+      <div>
+        <h3>{deckName}</h3>
+        <h4>{deckPrice}</h4>
+      </div>
+      <div>
+        <button onClick={removeFunction} className="btn btn-danger">Remove from Cart</button>
+      </div>
     </article>
   );
 }
