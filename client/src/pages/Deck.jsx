@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Carousel } from "nuka-carousel";
+import toast from "react-hot-toast";
+
+import { useCart } from "../hooks/useCart";
 
 function Deck() {
   const { id } = useParams();
+
+  // State for the cart
+  const { cart, setCart } = useCart();
 
   // State for deck information
   const [deckId, setDeckId] = useState("");
@@ -31,34 +37,47 @@ function Deck() {
   }, []);
 
   function addToCart() {
-    console.log("add to cart clicked");
-    // TODO!
+    // Add relevant details about this deck to the cart
+    setCart([
+      ...cart,
+      {
+        id: deckId,
+        name: name,
+        price: price
+      }
+    ]);
+
+    // Show a message that the cart was changed
+    toast.success("Added to cart!");
   }
 
   return (
-    <div className="deck-page">
-      <div className="deck-item">
-        <h1>{name}</h1>
+    <div className="container">
+      <div className="deck-page">
+        <div className="deck-item">
+          <h1>{name}</h1>
+        </div>
+        <div className="deck-item">
+          <h4>
+            First Striker Price: {price} &emsp;||&emsp;Price on CardKingdom: {compPrice}
+          </h4>
+        </div>
+        <div className="deck-item">
+          <Carousel showArrows="hover" wrapMode="wrap" className="carousel">
+            <img src={`/img/decks/${deckId}/0.jpg`} width={300} />
+            <img src={`/img/decks/${deckId}/1.jpg`} width={300} />
+            <img src={`/img/decks/${deckId}/2.jpg`} width={300} />
+          </Carousel>
+        </div>
+        <div className="deck-item">
+          <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+        </div>
+        <div className="container">
+          <p dangerouslySetInnerHTML={{ __html: description}}></p>
+        </div>
+          <h3>Full Card List:</h3>
+          <p dangerouslySetInnerHTML={{ __html: cardList}}></p>
       </div>
-      <div className="deck-item">
-        <h4>
-          First Striker Price: {price} &emsp;||&emsp;Price on CardKingdom: {compPrice}
-        </h4>
-      </div>
-      <div className="deck-item">
-        <Carousel>
-          <img src={`/img/decks/${deckId}/0.jpg`} width={200} height={300} />
-          <img src={`/img/decks/${deckId}/1.jpg`} width={200} height={300} />
-        </Carousel>
-      </div>
-      <div className="deck-item">
-        <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
-      </div>
-      <div className="container">
-        <p dangerouslySetInnerHTML={{ __html: description}}></p>
-      </div>
-        <h3>Full Card List:</h3>
-        <p dangerouslySetInnerHTML={{ __html: cardList}}></p>
     </div>
   );
 }

@@ -1,30 +1,28 @@
 import { Routes, Route } from "react-router";
+import { Toaster } from "react-hot-toast";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";
-import Deck from "./pages/Deck";
 import AboutUs from "./pages/AboutUs";
+import Cart from "./pages/Cart";
+import Deck from "./pages/Deck";
+import Home from "./pages/Home";
 
 function App() {
-  // const { loading } = useAuth();
-
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
   return (
     <>
       <Navbar />
-      <main className="container">
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/deck/:id" element={<Deck />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
       <Footer />
+      <Toaster />
     </>
   );
 }

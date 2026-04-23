@@ -16,20 +16,24 @@ function Home() {
   }, []);
 
   return (
-    <>
-      {
-      // <div className="container">
-      //   <img src="/img/dice.jpg" />
-      // </div>
-      }
+    <div className="container">
       <h2>Decks:</h2>
-        <div className="deck-card-container">
+      { decks && 
+        <DeckCard
+          deckId={2}
+          imgSrc={`/img/decks/2/0.jpg`}
+          imgAlt="This"
+          name={"deck name"}
+          price={"00.00"}
+        />
+        }
+        <div>
           { decks &&
           decks.map((deck) => {
             <div key={deck.id}>
               <DeckCard
                 deckId={deck.id}
-                imgSrc="/img/decks/{deck.id}/0.png"
+                imgSrc={`/img/decks/{deck.id}/0.jpg`}
                 imgAlt={`${deck.name} Cover Image`}
                 name={deck.name}
                 price={deck.price}
@@ -38,7 +42,7 @@ function Home() {
             })
           }
       </div>
-    </>
+    </div>
   );
 }
 

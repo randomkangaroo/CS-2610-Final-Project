@@ -1,7 +1,14 @@
 function AboutUs() {
   return (
     <div className="container">
-      <img src="/img/about.jpg" alt="A First Strike Magic Deck in a box with dice"/>
+      <div className="img-container">
+        <img
+          src="/img/about.jpg"
+          alt="A First Strike Magic Deck in a box with dice"
+          width={750}
+        />
+      </div>
+      <div className="container">
       <h1>The First Striker Standard</h1>
       <p>Each of our curated decks is built to provide a high-power, cohesive experience right out of the box. We believe new players should have a seat at the table with a deck that can actually win.</p>
       <ul>
@@ -12,6 +19,7 @@ function AboutUs() {
         <li><i>Note: First-Striker Custom Commander Decks is not affiliated with, endorsed, or sponsored by Wizards of the Coast.</i></li>
         <li><i>Shipping not included: Calculated at checkout</i></li>
       </ul>
+      </div>
     </div>
   );
 }

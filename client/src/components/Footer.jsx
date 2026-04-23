@@ -1,13 +1,12 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 function Footer() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError("");
 
     const result = await fetch("/api/newsletter", {
       method: "POST",
@@ -21,8 +20,9 @@ function Footer() {
     const data = await result.json();
 
     if (!result.ok) {
-      setError(data.error);
-      return;
+      toast.error(`Subscription error: ${data.error}`);
+    } else {
+      toast.success(`Subscribed! Thanks, ${name}!`);
     }
   }
 
@@ -31,7 +31,6 @@ function Footer() {
       <div className="footer">
         <div className="row">
           <h4>Join our newsletter!</h4>
-          {error && <p className="error-message">{error}</p>}
           <form onSubmit={handleSubmit} className="form">
             <div className="form-group">
               <label htmlFor="name">Name: </label>
@@ -54,15 +53,6 @@ function Footer() {
             <button type="submit" className="btn">Subscribe</button>
           </form>
         </div>
-        <div className="row">
-          <ul>
-            <li>Contact us</li>
-            <li>Our Services</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-          </ul>
-        </div>
-
         <div className="row">
           Copyright © 2026 First Striker Decks - All rights reserved
         </div>
