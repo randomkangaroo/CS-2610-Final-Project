@@ -27,3 +27,11 @@ export async function addUser(name, email) {
   );
   return result.rows;
 }
+
+export async function removeUserByEmail(email) {
+  const result = await pool.query(
+    "DELETE FROM users WHERE email=$1",
+    [email]
+  );
+  return result.rowCount ? true : false;
+}

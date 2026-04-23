@@ -8,6 +8,7 @@ import AboutUs from "./pages/AboutUs";
 import Cart from "./pages/Cart";
 import Deck from "./pages/Deck";
 import Home from "./pages/Home";
+import Unsubscribe from "./pages/Unsubscribe";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/deck/:id" element={<Deck />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
         </Routes>
       </main>
       <Footer />

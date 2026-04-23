@@ -7,9 +7,12 @@ function DeckCard({ deckId, imgSrc, imgAlt, name, price }) {
         <img
           src={imgSrc}
           alt={imgAlt}
+          height={300}
         />
-        <p>{name}</p>
-        <p>{price}</p>
+        <div>
+          <h2>{name}</h2>
+          <h3>{price}</h3>
+        </div>
       </Link>
     </article>
   );

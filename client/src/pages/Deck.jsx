@@ -9,7 +9,7 @@ function Deck() {
   const { id } = useParams();
 
   // State for the cart
-  const { cart, setCart } = useCart();
+  const { cart, setCart, itemId, setItemId, loading, setLoading } = useCart();
 
   // State for deck information
   const [deckId, setDeckId] = useState("");
@@ -20,6 +20,7 @@ function Deck() {
   const [compPrice, setCompPrice] = useState("");
 
   useEffect(() => {
+    setLoading(true);
     // Get the information for the selected deck
     async function getDeck() {
       const res = await fetch(`/api/deck/${id}`, { method: "GET" });
@@ -31,21 +32,29 @@ function Deck() {
       setCardList(body.card_list);
       setPrice(body.price);
       setCompPrice(body?.competitor_price);
+
+      setLoading(false);
     }
 
     getDeck();
   }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   function addToCart() {
     // Add relevant details about this deck to the cart
     setCart([
       ...cart,
       {
+        key: itemId,
         id: deckId,
         name: name,
         price: price
       }
     ]);
+    setItemId(() => itemId + 1)
 
     // Show a message that the cart was changed
     toast.success("Added to cart!");
