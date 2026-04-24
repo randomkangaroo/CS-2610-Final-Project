@@ -38,6 +38,7 @@ function Footer() {
                 type="text"
                 name="name"
                 maxLength="256"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 required/>
             </div>
@@ -47,6 +48,7 @@ function Footer() {
                 type="email"
                 name="email"
                 maxLength="256"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required/>
             </div>
@@ -54,6 +56,16 @@ function Footer() {
               <button type="submit" className="btn">Subscribe</button>
             </div>
           </form>
+        </div>
+        <div className="row">
+          <ul>
+            <li>Terms of Service</li>
+            <li>Privacy Policy</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+        <div className="row">
+          <i>First-Striker Custom Commander Decks is not affiliated with, endorsed, or sponsored by Wizards of the Coast.</i>
         </div>
         <div className="row">
           Copyright © 2026 First Striker Decks - All rights reserved

@@ -24,7 +24,11 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      <Toaster />
+      <Toaster
+        containerStyle={{
+          top: 72,
+        }}
+      />
     </>
   );
 }

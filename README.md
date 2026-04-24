@@ -16,6 +16,7 @@ Run the migrations on the database next with the command
 npm run migrate
 ```
 
+## Usage
 Run both the client and server at the same time in two terminal windows by running the commands
 ```bash
 npm run server-dev
@@ -27,17 +28,14 @@ npm run client-dev
 
 Navigate to the specified URL in a browser of your choice from the window running the `server-dev` script to run the application.
 
-## Usage
-TODO
-
 ## Roadmap
 See the [Final Project Proposal](./Proposal_Thomas_Moulton.md)
 
 ## Author
 This project is made by Thomas Moulton
 
-## License
-TODO
-
-## Project status
-TODO
+## Planed To-Do Items
+- [ ] Add integration with payment service, such as Stripe
+- [ ] Add pages for Terms of Service and Privacy policies
+- [ ] Add some sort of admin portal to edit or add deck information instead of editing the database directly
+- [ ] Add reviews from customers

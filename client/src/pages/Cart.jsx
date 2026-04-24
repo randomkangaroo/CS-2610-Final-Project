@@ -34,34 +34,36 @@ function Cart() {
   }
 
   return (
-    <div className="container">
-      <h2>Cart:</h2>
-      { cart.length > 0 &&
-        cart.map((item, index) => (
-          <div key={item.key}>
-            <CartItem
-              deckId={item.id}
-              deckName={item.name}
-              deckPrice={item.price}
-              removeFunction={() => removeItem(item.key, index)}
-            />
+    <div className="main-page">
+      <div className="container">
+        <h2>Cart:</h2>
+        { cart.length > 0 &&
+          cart.map((item, index) => (
+            <div key={item.key}>
+              <CartItem
+                deckId={item.id}
+                deckName={item.name}
+                deckPrice={item.price}
+                removeFunction={() => removeItem(item.key, index)}
+              />
+            </div>
+          ))
+        }
+          <div className="cart-price">
+            <h3>{`Total Price: ${totalPrice}`}</h3>
+            { cart.length > 0 &&
+              <button
+                onClick={/* This is temporary */
+                          () => toast("This functionality doesn't work yet")
+                        }
+                className="btn btn-primary"
+                >
+                  Buy
+              </button>
+            }
           </div>
-        ))
-      }
-        <div className="cart-price">
-          <h3>{`Total Price: ${totalPrice}`}</h3>
-          { cart.length > 0 &&
-            <button
-              onClick={/* This is temporary */
-                        () => toast("This functionality doesn't work yet")
-                      }
-              className="btn btn-primary"
-              >
-                Buy
-            </button>
-          }
-        </div>
-      <div className="spacer"></div>
+        <div className="spacer"></div>
+      </div>
     </div>
   );
 }

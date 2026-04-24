@@ -29,25 +29,26 @@ function Home() {
   }
 
   return (
-    <div className="container">
-      <h1 style={{fontSize: "100pt", textAlign: "center"}}>Welcome!</h1>
-      <h2>Available Decks:</h2>
-        <div className="decks-container">
-          { !loading && decks &&
-          decks.map((deck) => (
-            <div key={deck.id}>
-              <DeckCard
-                deckId={deck.id}
-                imgSrc={`/img/decks/${deck.id}/0.jpg`}
-                imgAlt={`${deck.name} Cover Image`}
-                name={deck.name}
-                price={deck.price}
-              />
-            </div>
-            ))
-          }
+    <div className="main-page">
+      <div className="container">
+        <h2 style={{textAlign: "center"}}>Curated Decks:</h2>
+          <div className="decks-container">
+            { !loading && decks &&
+            decks.map((deck) => (
+              <div key={deck.id}>
+                <DeckCard
+                  deckId={deck.id}
+                  imgSrc={`/img/decks/${deck.id}/0.jpg`}
+                  imgAlt={`${deck.name} Cover Image`}
+                  name={deck.name}
+                  price={deck.price}
+                />
+              </div>
+              ))
+            }
+        </div>
+        <div className="spacer"></div>
       </div>
-      <div className="spacer"></div>
     </div>
   );
 }

@@ -17,7 +17,8 @@ function Deck() {
   const [description, setDescription] = useState("");
   const [cardList, setCardList] = useState("");
   const [price, setPrice] = useState("");
-  const [compPrice, setCompPrice] = useState("");
+  const [compPrice, setCompPrice] = useState("No Price Found");
+  const [bgColor, setBgColor] = useState("main-page");
 
   useEffect(() => {
     setLoading(true);
@@ -31,7 +32,14 @@ function Deck() {
       setDescription(body.description);
       setCardList(body.card_list);
       setPrice(body.price);
-      setCompPrice(body?.competitor_price);
+
+      if (body.competitor_price) {
+        setCompPrice(body.competitor_price);
+      }
+
+      if (body.deck_color) {
+        setBgColor(body.deck_color);
+      }
 
       setLoading(false);
     }
@@ -61,37 +69,39 @@ function Deck() {
     setItemId(() => itemId + 1)
 
     // Show a message that the cart was changed
-    toast.success("Added to cart!");
+    toast.success("Added to cart!", { position: "top-right" });
   }
 
   return (
-    <div className="container">
-      <div className="deck-page">
-        <div className="deck-item">
-          <h1>{name}</h1>
+    <div className={bgColor}>
+      <div className="container">
+        <div className="deck-page">
+          <div className="deck-item">
+            <h1>{name}</h1>
+          </div>
+          <div className="deck-item">
+            <h4>
+              First Striker Price: {price} &emsp;||&emsp;Price on CardKingdom: {compPrice}
+            </h4>
+          </div>
+          <div className="deck-item">
+          { deckId &&
+            <Carousel showArrows="hover" wrapMode="wrap" className="carousel">
+              <img src={`/img/decks/${deckId}/0.jpg`} width={300} />
+              <img src={`/img/decks/${deckId}/1.jpg`} width={300} />
+              <img src={`/img/decks/${deckId}/2.jpg`} width={300} />
+            </Carousel>
+          }
+          </div>
+          <div className="deck-item">
+            <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+          </div>
+          <div className="container">
+            <p dangerouslySetInnerHTML={{ __html: description}}></p>
+          </div>
+            <h3>Full Card List:</h3>
+            <p dangerouslySetInnerHTML={{ __html: cardList}}></p>
         </div>
-        <div className="deck-item">
-          <h4>
-            First Striker Price: {price} &emsp;||&emsp;Price on CardKingdom: {compPrice}
-          </h4>
-        </div>
-        <div className="deck-item">
-        { deckId &&
-          <Carousel showArrows="hover" wrapMode="wrap" className="carousel">
-            <img src={`/img/decks/${deckId}/0.jpg`} width={300} />
-            <img src={`/img/decks/${deckId}/1.jpg`} width={300} />
-            <img src={`/img/decks/${deckId}/2.jpg`} width={300} />
-          </Carousel>
-        }
-        </div>
-        <div className="deck-item">
-          <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
-        </div>
-        <div className="container">
-          <p dangerouslySetInnerHTML={{ __html: description}}></p>
-        </div>
-          <h3>Full Card List:</h3>
-          <p dangerouslySetInnerHTML={{ __html: cardList}}></p>
       </div>
     </div>
   );

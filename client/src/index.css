@@ -1,5 +1,9 @@
 :root {
-  --background-color: linear-gradient(#e66465, #9198e5);
+  --background-color:
+    linear-gradient(rgb(255, 242, 126), rgb(230, 205, 143));
+  --red-deck-background-color: linear-gradient(#d61111, #fff2a3);
+  --green-deck-background-color: linear-gradient(#238f00, #93fff9);
+  --black-deck-background-color: linear-gradient(#191324, #2f0087);
   --page-color: #f5f5f5;
   --page-text-color: #333;
   --bar-color: #333;
@@ -16,7 +20,7 @@
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  background: var(--background-color);
+  background: var(--bar-color);
   color: var(--page-text-color);
   line-height: 1.6;
 }
@@ -132,6 +136,23 @@ body {
   border-radius: 10px;
 }
 
+/* Page backgrounds */
+.main-page {
+  background: var(--background-color);
+}
+
+.red-deck {
+  background: var(--red-deck-background-color);
+}
+
+.green-deck {
+  background: var(--green-deck-background-color);
+}
+
+.black-deck {
+  background: var(--black-deck-background-color);
+}
+
 /* Home */
 .home-logo {
   display: block;
@@ -232,9 +253,10 @@ body {
   font-size: 0.8em;
 }
 
+.footer .row ul li,
 .footer .row form input {
   display: inline-block;
-  margin: 0px 20px;
+  margin: 0px 30px;
 }
 
 .footer-btn {
