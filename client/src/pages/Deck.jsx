@@ -40,7 +40,11 @@ function Deck() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="container">
+        <div style={{height: "100vh"}}></div>
+      </div>
+    );
   }
 
   function addToCart() {
@@ -72,11 +76,13 @@ function Deck() {
           </h4>
         </div>
         <div className="deck-item">
+        { deckId &&
           <Carousel showArrows="hover" wrapMode="wrap" className="carousel">
             <img src={`/img/decks/${deckId}/0.jpg`} width={300} />
             <img src={`/img/decks/${deckId}/1.jpg`} width={300} />
             <img src={`/img/decks/${deckId}/2.jpg`} width={300} />
           </Carousel>
+        }
         </div>
         <div className="deck-item">
           <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>

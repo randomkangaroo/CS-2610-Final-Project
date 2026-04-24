@@ -21,7 +21,11 @@ function Home() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="container">
+        <div style={{height: "100vh"}}></div>
+      </div>
+    );
   }
 
   return (
