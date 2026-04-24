@@ -50,7 +50,9 @@ function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 required/>
             </div>
-            <button type="submit" className="btn">Subscribe</button>
+            <div className="footer-btn">
+              <button type="submit" className="btn">Subscribe</button>
+            </div>
           </form>
         </div>
         <div className="row">

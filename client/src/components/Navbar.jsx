@@ -12,7 +12,10 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/"><img src={logo} alt="Company logo" className="navbar-logo" /></Link>
+        <Link to="/">
+          <img src={logo} alt="Company logo" className="navbar-logo" />
+          &ensp;First Striker Decks
+        </Link>
       </div>
         <div className="navbar-links">
           { cart.length > 0 &&
