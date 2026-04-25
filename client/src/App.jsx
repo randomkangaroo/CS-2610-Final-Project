@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 import AboutUs from "./pages/AboutUs";
 import Cart from "./pages/Cart";
+import ContactUs from "./pages/ContactUs"
 import Deck from "./pages/Deck";
 import Home from "./pages/Home";
 import Unsubscribe from "./pages/Unsubscribe";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/deck/:id" element={<Deck />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/unsubscribe" element={<Unsubscribe />} />
         </Routes>
       </main>

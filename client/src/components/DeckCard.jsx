@@ -10,7 +10,7 @@ function DeckCard({ deckId, imgSrc, imgAlt, name, price }) {
           height={300}
         />
         <div>
-          <h2>{name}</h2>
+          <h2 className="fancy-font">{name}</h2>
           <h3>{price}</h3>
         </div>
       </Link>

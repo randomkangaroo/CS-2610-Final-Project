@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS comments (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(256) NOT NULL,
+    comment TEXT NOT NULL
+);

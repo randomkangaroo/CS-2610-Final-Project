@@ -31,7 +31,11 @@ function Home() {
   return (
     <div className="main-page">
       <div className="container">
-        <h2 style={{textAlign: "center"}}>Curated Decks:</h2>
+        <h1 className="title title-font">First Striker Commander Decks</h1>
+        <p className="main-text">
+          Each of our curated commander decks comes with complementary card sleeves and dice. Literally open, shuffle, and play. Designed to compete and win against standard "precon" level decks.
+        </p>
+        <h2>Curated Decks:</h2>
           <div className="decks-container">
             { !loading && decks &&
             decks.map((deck) => (
@@ -47,7 +51,6 @@ function Home() {
               ))
             }
         </div>
-        <div className="spacer"></div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import toast from "react-hot-toast";
 
 function Footer() {
@@ -59,9 +60,9 @@ function Footer() {
         </div>
         <div className="row">
           <ul>
-            <li>Terms of Service</li>
-            <li>Privacy Policy</li>
-            <li>Contact Us</li>
+            <li><Link to="#">Terms of Service</Link></li>
+            <li><Link to="#">Privacy Policy</Link></li>
+            <li><Link to="/contact-us">Contact Us</Link></li>
           </ul>
         </div>
         <div className="row">

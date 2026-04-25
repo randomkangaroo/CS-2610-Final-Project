@@ -1,0 +1,3 @@
+ALTER TABLE comments
+ADD creation_time TIMESTAMPTZ NOT NULL DEFAULT NOW()
+;

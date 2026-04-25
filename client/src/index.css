@@ -1,3 +1,6 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Uncial+Antiqua&display=swap');
+
 :root {
   --background-color:
     linear-gradient(rgb(255, 242, 126), rgb(230, 205, 143));
@@ -9,7 +12,8 @@
   --bar-color: #333;
   --bar-text-main-color: #fff;
   --bar-text-second-color: gray;
-  --deck-color: beige;
+  --deck-background-color: #15120D;
+  --deck-color: #E2E0E0;
 }
 
 * {
@@ -136,6 +140,10 @@ body {
   border-radius: 10px;
 }
 
+textarea {
+  resize: none;
+}
+
 /* Page backgrounds */
 .main-page {
   background: var(--background-color);
@@ -171,6 +179,26 @@ body {
   margin: 1.6rem;
 }
 
+.fancy-font {
+  font-family: "Uncial Antiqua", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.title-font {
+  font-family: "Almendra", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40pt;
+}
+
+.deck-title-font {
+  font-family: "Almendra", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30pt;
+}
+
 .decks-container {
   display: flex;
   justify-content: center;
@@ -195,7 +223,8 @@ body {
   margin: 10px;
   border: 2px black solid;
   border-radius: 15px;
-  background-color: var(--deck-color);
+  background-color: var(--deck-background-color);
+  color: var(--deck-color);
   box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
 }
@@ -226,9 +255,16 @@ body {
   padding: 10px;
   margin: 10px;
   text-align: center;
-  background-color: var(--deck-color);
+  background-color: var(--deck-background-color);
+  color: var(--deck-color);
   box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
+}
+
+.cart-info {
+  display: inline-block;
+  font-size: 16pt;
+  padding: 0px 30px;
 }
 
 .cart-price {
@@ -259,12 +295,22 @@ body {
   margin: 0px 30px;
 }
 
+.footer .row a {
+  text-decoration: none;
+  color: var(--bar-text-second-color);
+}
+
+.footer .row a:hover {
+  color: var(--bar-text-main-color);
+}
+
 .footer-btn {
   margin: 15px 20px;
 }
 
-@media (max-width:720px){
-.footer{
-  text-align: left;
-  padding: 5rem;
+@media (max-width:720px) {
+  .footer {
+    text-align: left;
+    padding: 5rem;
+  }
 }

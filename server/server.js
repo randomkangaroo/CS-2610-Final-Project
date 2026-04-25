@@ -5,7 +5,9 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { create } from "express-handlebars";
 
+import commentsController from "./controllers/comment.js";
 import decksController from "./controllers/decks.js";
+import paymentController from "./controllers/payment.js";
 import usersController from "./controllers/users.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,6 +27,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
 
 // API Routes
+app.use("/api/payment", paymentController);
+app.use("/api/feedback", commentsController);
 app.use("/api/newsletter", usersController);
 app.use("/api", decksController);
 

@@ -77,10 +77,10 @@ function Deck() {
       <div className="container">
         <div className="deck-page">
           <div className="deck-item">
-            <h1>{name}</h1>
+            <h1 className="title-font">{name}</h1>
           </div>
           <div className="deck-item">
-            <h4>
+            <h4 className="fancy-font">
               First Striker Price: {price} &emsp;||&emsp;Price on CardKingdom: {compPrice}
             </h4>
           </div>
