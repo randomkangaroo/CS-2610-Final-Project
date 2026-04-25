@@ -98,7 +98,7 @@ body {
 .btn-primary {
   background-color: #4a90d9;
   color: #fff;
-  width: 40rem;
+  width: 100%;
 }
 
 .btn-primary:hover {
@@ -116,10 +116,14 @@ body {
 
 /* Forms */
 .form {
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+
+.form-column {
+  flex-direction: column;
 }
 
 .form-group {

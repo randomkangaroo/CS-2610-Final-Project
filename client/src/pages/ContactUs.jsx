@@ -34,9 +34,9 @@ function ContactUs() {
         <p className="main-text">
           Enter your email below so that we know how to contact you. Please also enter your feedback or questions in the box provided. Thanks in advance! We appreciate your feedback.
         </p>
-        <form onSubmit={handleSubmit} className="container">
+        <form onSubmit={handleSubmit} className="form form-column">
+          <label htmlFor="email">Email: </label>
           <div className="form-group">
-            <label htmlFor="email">Email: </label>
             <input
               type="email"
               name="email"
@@ -47,14 +47,13 @@ function ContactUs() {
               required
             />
           </div>
+          <label htmlFor="comments">Comments: </label>
           <div className="form-group">
-            <label htmlFor="comments">Comments: </label>
-            <br />
             <textarea
               name="comments"
               maxLength="5000"
               rows="15"
-              cols="70"
+              cols="53"
               placeholder="Enter your text here..."
               value={comments}
               onChange={e => setComments(e.target.value)}
@@ -65,7 +64,6 @@ function ContactUs() {
             <button type="submit" className="btn btn-primary">Submit</button>
           </div>
         </form>
-        <div className="spacer"></div>
       </div>
     </div>
   );
