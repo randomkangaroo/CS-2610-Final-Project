@@ -31,11 +31,13 @@ Navigate to the specified URL in a browser of your choice from the window runnin
 ## Roadmap
 See the [Final Project Proposal](./Proposal_Thomas_Moulton.md)
 
-## Author
-This project is made by Thomas Moulton
-
-## Planed To-Do Items
+### Planed To-Do Items
 - [ ] Add integration with payment service, such as Stripe
+  - Note that I started doing this, but it will take a lot of time to fully implement it
 - [ ] Add pages for Terms of Service and Privacy policies
 - [ ] Add some sort of admin portal to edit or add deck information instead of editing the database directly
 - [ ] Add reviews from customers
+
+## Author
+This project is made by Thomas Moulton
+
